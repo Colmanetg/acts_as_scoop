@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: sections
+#
+#  section     :string(30)      default(""), not null
+#  title       :string(64)      default(""), not null
+#  description :text
+#  icon        :string(255)
+#
+
 class Section < ActiveRecord::Base
   validates_presence_of :section
   validates_length_of :section, :allow_nil => false, :maximum => 30

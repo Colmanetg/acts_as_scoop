@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20090207194551) do
 
   create_table "ad_info", :primary_key => "ad_id", :force => true do |t|
     t.string   "ad_tmpl",          :limit => 30
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "rater_ip",    :limit => 16, :default => "", :null => false
   end
 
-  create_table "comments", :id => false, :force => true do |t|
+  create_table "comments", :force => true do |t|
     t.string   "sid",        :limit => 30,                                :default => "", :null => false
     t.integer  "cid",        :limit => 15,                                :default => 0,  :null => false
     t.integer  "pid",        :limit => 15,                                :default => 0,  :null => false
@@ -146,8 +146,14 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "sig",        :limit => 160
     t.string   "commentip",  :limit => 16
     t.decimal  "pre_rating",                :precision => 4, :scale => 2
+    t.integer  "lft",        :limit => 11
+    t.integer  "rgt",        :limit => 11
+    t.integer  "root_id",    :limit => 11
+    t.integer  "parent_id",  :limit => 11
+    t.integer  "story_id",   :limit => 11
   end
 
+  add_index "comments", ["id"], :name => "id", :unique => true
   add_index "comments", ["uid", "pid"], :name => "stuff"
 
   create_table "commentstats", :id => false, :force => true do |t|
@@ -346,7 +352,8 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string "name", :limit => 32
   end
 
-  create_table "stories", :primary_key => "sid", :force => true do |t|
+  create_table "stories", :force => true do |t|
+    t.string   "sid",           :limit => 20,  :default => "",    :null => false
     t.string   "tid",           :limit => 20,  :default => "",    :null => false
     t.integer  "aid",           :limit => 11,  :default => 0,     :null => false
     t.string   "title",         :limit => 100
@@ -367,16 +374,9 @@ ActiveRecord::Schema.define(:version => 0) do
     t.boolean  "edit_category",                :default => false, :null => false
   end
 
+  add_index "stories", ["id"], :name => "id", :unique => true
   add_index "stories", ["section", "displaystatus"], :name => "section_idx"
   add_index "stories", ["displaystatus"], :name => "displaystatus_idx"
-
-  create_table "storymoderate", :id => false, :force => true do |t|
-    t.string   "sid",          :limit => 20, :default => "",  :null => false
-    t.integer  "uid",          :limit => 11, :default => 0,   :null => false
-    t.datetime "time"
-    t.integer  "vote",         :limit => 11, :default => 0,   :null => false
-    t.string   "section_only", :limit => 0,  :default => "X", :null => false
-  end
 
   create_table "subscription_info", :primary_key => "uid", :force => true do |t|
     t.integer  "expires",      :limit => 11, :default => 0,  :null => false

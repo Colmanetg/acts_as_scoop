@@ -1,0 +1,10 @@
+<h1>Stories#index</h1>
+<ul>
+	<%@stories.each do |story|%>
+
+<h2><%=story.title%> (<%=story.time%>)</h2>
+<div>
+<%=story.introtext%>
+</div>
+<div><%=link_to "More", :action=>:show,:controller=>:story,:id=>story.sid%></div>
+<%end%>

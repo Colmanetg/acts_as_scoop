@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: viewed_stories
+#
+#  uid         :integer(11)     default(0), not null
+#  sid         :string(20)      default(""), not null
+#  lastseen    :integer(11)     default(0), not null
+#  highest_idx :integer(11)     default(0), not null
+#  hotlisted   :integer(4)      default(0), not null
+#
+
 class ViewedStory < ActiveRecord::Base
   validates_presence_of :uid
   validates_numericality_of :uid, :allow_nil => false, :only_integer => true

@@ -1,0 +1,12 @@
+<h1><%=@story.title%></h1
+	<div><%=@story.introtext%></div>
+	<div><%=@story.bodytext%></div>
+
+	<%@root_comments.each do |root|%>
+			<%root.full_set.each do |comment|%>
+			<div id="<%=comment.id%>" name="<%=comment.id%> "style="margin-left: <%=4*comment.level%>em">
+					<h3><%=comment.subject%></h3>
+					<p><%=comment.comment%></p>
+			</div>
+		<%end%>
+	<%end%>

@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: ad_types
+#
+#  type_template       :string(30)      default(""), not null
+#  type_name           :string(50)      default(""), not null
+#  short_desc          :string(255)     default(""), not null
+#  submit_instructions :text
+#  max_file_size       :integer(11)
+#  max_text1_chars     :integer(5)
+#  max_text2_chars     :integer(5)
+#  max_title_chars     :integer(5)
+#  cpm                 :decimal(7, 2)
+#  active              :integer(1)      default(0), not null
+#  min_purchase_size   :integer(7)
+#  max_purchase_size   :integer(7)      default(1000000)
+#  pos                 :integer(5)      default(1), not null
+#  allow_discussion    :integer(1)      default(0)
+#
+
 class AdType < ActiveRecord::Base
   validates_presence_of :type_template
   validates_length_of :type_template, :allow_nil => false, :maximum => 30

@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: admin_tools
+#
+#  tool     :string(20)      default(""), not null
+#  pos      :integer(2)      default(0), not null
+#  dispname :string(60)      default(""), not null
+#  menuname :string(60)      default(""), not null
+#  perm     :string(50)      default(""), not null
+#  func     :string(50)      default(""), not null
+#  is_box   :integer(1)      default(0)
+#
+
 class AdminTool < ActiveRecord::Base
   validates_presence_of :tool
   validates_length_of :tool, :allow_nil => false, :maximum => 20

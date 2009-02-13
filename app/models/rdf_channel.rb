@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: rdf_channels
+#
+#  rid              :integer(6)      not null
+#  rdf_link         :string(200)     default(""), not null
+#  link             :string(200)
+#  title            :string(60)
+#  description      :text
+#  image_title      :string(40)
+#  image_url        :string(200)
+#  image_link       :string(200)
+#  form_title       :string(40)
+#  form_description :text(255)
+#  form_name        :string(20)
+#  form_link        :string(200)
+#  enabled          :integer(1)      default(1)
+#  submitted        :integer(1)
+#  submittor        :string(50)
+#
+
 class RdfChannel < ActiveRecord::Base
   validates_presence_of :rid
   validates_numericality_of :rid, :allow_nil => false, :only_integer => true

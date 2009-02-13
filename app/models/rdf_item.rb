@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: rdf_items
+#
+#  rid         :integer(6)      default(0), not null
+#  idx         :integer(4)      default(0), not null
+#  title       :string(100)
+#  link        :string(200)
+#  description :text(255)
+#
+
 class RdfItem < ActiveRecord::Base
   validates_presence_of :rid
   validates_numericality_of :rid, :allow_nil => false, :only_integer => true

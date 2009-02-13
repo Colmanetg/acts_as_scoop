@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: ops
+#
+#  op           :string(50)      default(""), not null
+#  template     :string(30)      default(""), not null
+#  func         :string(50)
+#  is_box       :integer(1)      default(0)
+#  enabled      :integer(1)      default(1)
+#  perm         :string(50)      default("")
+#  aliases      :string(255)     default(""), not null
+#  urltemplates :text            not null
+#  description  :text
+#
+
 class Op < ActiveRecord::Base
   validates_presence_of :op
   validates_length_of :op, :allow_nil => false, :maximum => 50

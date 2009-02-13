@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: pollanswers
+#
+#  qid    :string(20)      default(""), not null
+#  aid    :integer(11)     default(0), not null
+#  answer :string(255)
+#  votes  :integer(11)
+#
+
 class Pollanswer < ActiveRecord::Base
   validates_presence_of :qid
   validates_length_of :qid, :allow_nil => false, :maximum => 20

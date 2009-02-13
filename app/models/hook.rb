@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: hooks
+#
+#  hook    :string(50)      default(""), not null
+#  func    :string(50)      default(""), not null
+#  is_box  :integer(1)      default(0)
+#  enabled :integer(1)      default(1)
+#
+
 class Hook < ActiveRecord::Base
   validates_presence_of :hook
   validates_length_of :hook, :allow_nil => false, :maximum => 50

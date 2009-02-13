@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: pollquestions
+#
+#  qid       :string(20)      default(""), not null
+#  question  :string(255)     default(""), not null
+#  voters    :integer(11)
+#  post_date :datetime
+#  archived  :integer(1)      default(0)
+#
+
 class Pollquestion < ActiveRecord::Base
   validates_presence_of :qid
   validates_length_of :qid, :allow_nil => false, :maximum => 20

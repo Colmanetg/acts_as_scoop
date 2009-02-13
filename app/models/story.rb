@@ -1,4 +1,30 @@
+# == Schema Information
+#
+# Table name: stories
+#
+#  sid           :string(20)      default(""), not null
+#  tid           :string(20)      default(""), not null
+#  aid           :integer(11)     default(0), not null
+#  title         :string(100)
+#  dept          :string(100)
+#  time          :datetime        not null
+#  introtext     :text
+#  bodytext      :text
+#  writestatus   :integer(1)      default(0), not null
+#  hits          :integer(1)      default(0), not null
+#  section       :string(30)      default(""), not null
+#  displaystatus :integer(1)      default(0), not null
+#  commentstatus :integer(1)
+#  totalvotes    :integer(11)     default(0), not null
+#  score         :integer(11)     default(0), not null
+#  rating        :integer(11)     default(0), not null
+#  attached_poll :string(20)
+#  sent_email    :integer(1)      default(0), not null
+#  edit_category :boolean(1)      not null
+#
+
 class Story < ActiveRecord::Base
+  has_many :comments
   validates_presence_of :sid
   validates_length_of :sid, :allow_nil => false, :maximum => 20
   validates_presence_of :tid

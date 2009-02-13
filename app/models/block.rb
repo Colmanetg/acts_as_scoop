@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: blocks
+#
+#  bid         :string(30)      default(""), not null
+#  block       :text
+#  aid         :string(20)
+#  description :text
+#  category    :string(128)     default("general"), not null
+#  theme       :string(32)      default("default"), not null
+#  language    :string(10)      default("en"), not null
+#
+
 class Block < ActiveRecord::Base
   validates_presence_of :bid
   validates_length_of :bid, :allow_nil => false, :maximum => 30

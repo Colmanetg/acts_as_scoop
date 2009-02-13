@@ -28,7 +28,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: acts_as_scoop_test
+  database: eurotrib_test
   username: root
   password:
   socket: /tmp/mysql.sock

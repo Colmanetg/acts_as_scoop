@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: advertisers
+#
+#  advertisor_id :integer(11)     default(0), not null
+#  contact_name  :string(255)     default(""), not null
+#  contact_phone :string(20)
+#  company_name  :string(255)     default(""), not null
+#  snail_mail    :string(255)
+#
+
 class Advertiser < ActiveRecord::Base
   validates_presence_of :contact_name
   validates_length_of :contact_name, :allow_nil => false, :maximum => 255

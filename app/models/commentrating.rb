@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: commentratings
+#
+#  uid         :integer(1)      default(0), not null
+#  rating      :integer(11)     default(0), not null
+#  cid         :integer(15)     default(0), not null
+#  sid         :string(30)      default(""), not null
+#  rating_time :datetime
+#  rater_ip    :string(16)      default(""), not null
+#
+
 class Commentrating < ActiveRecord::Base
   validates_presence_of :uid
   validates_numericality_of :uid, :allow_nil => false, :only_integer => true
